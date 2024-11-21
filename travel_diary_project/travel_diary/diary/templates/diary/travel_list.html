@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Diary</title>
+</head>
+<body>
+    <h1>Travel Diary</h1>
+    <ul>
+        {% for travel in travels %}
+            <li>
+                <h2>{{ travel.title }}</h2>
+                <p>{{ travel.description }}</p>
+                <p><strong>Location:</strong> {{ travel.location }}</p>
+                <p><strong>Cost:</strong> ${{ travel.cost }}</p>
+                <p><strong>Rating:</strong> {{ travel.rating }}</p>
+                <img src="{{ travel.image.url }}" alt="Image of {{ travel.title }}" width="200">
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_travel' %}">Create New Travel</a>
+</body>
+</html>
